@@ -1,0 +1,221 @@
+.header {
+  height: 500px;
+  background-color: $ice-cream;
+  overflow-x: hidden;
+  @include for-size(tablet) {
+    height: 400px;
+  }
+  @include for-size(desktop) {
+    height: 666px;
+  }
+}
+.header__container {
+  position: relative;
+  background-image: url('../images/mobile/header/ice-cream.png'),
+    url('../images/icons/pink-circle-mobile.svg');
+  background-repeat: no-repeat;
+  background-position: right 32px bottom, right bottom 75px;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url('../images/mobile/header/ice-cream@2x.png'),
+      url('../images/icons/pink-circle-mobile.svg');
+    background-size: 171px 410px, auto auto;
+  }
+
+  @include for-size(tablet) {
+    background-image: url('../images/tablet/header/milk.png'),
+      url('../images/tablet/header/ice-cream.png'),
+      url('../images/tablet/header/girl.png'),
+      url('../images/icons/pink-circle-tablet.svg');
+    background-position: left 20px bottom 28px, right 247px bottom,
+      right 34px bottom, right 137px bottom 46px;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/tablet/header/milk@2x.png'),
+        url('../images/tablet/header/ice-cream@2x.png'),
+        url('../images/tablet/header/girl@2x.png'),
+        url('../images/icons/pink-circle-tablet.svg');
+      background-size: 124px 126px, 143px 336px, 168px 133px, auto auto;
+    }
+  }
+  @include for-size(desktop) {
+    background-image: url('../images/desktop/header/milk.png'),
+      url('../images/desktop/header/ice-cream.png'),
+      url('../images/desktop/header/girl.png'),
+      url('../images/icons/pink-circle-desktop.svg');
+    background-position: left 20px bottom 45px, right 450px bottom,
+      right 109px bottom, right 267px bottom 75px;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/desktop/header/milk@2x.png'),
+        url('../images/desktop/header/ice-cream@2x.png'),
+        url('../images/desktop/header/girl@2x.png'),
+        url('../images/icons/pink-circle-desktop.svg');
+      background-size: 188px 191px, 236px 557px, 293px 232px, auto auto;
+    }
+  }
+}
+.header__flexbox {
+  padding-bottom: 25px;
+  padding-top: 10px;
+  @include flex($justcont: space-between);
+  @include for-size(tablet) {
+    padding-top: 37px;
+    padding-bottom: 15px;
+  }
+}
+.header__button {
+  display: inline-flex;
+  margin: 0;
+  padding: 10px;
+  border: 0;
+  z-index: 99;
+  background-color: transparent;
+  & .header__icon-close {
+    @include trans(opacity, 0);
+  }
+  & .header__icon-burger {
+    @include trans(opacity, 1);
+  }
+  &.is-open .header__icon-close {
+    @include trans(opacity, 1);
+  }
+  &.is-open .header__icon-burger {
+    @include trans(opacity, 0);
+  }
+  @include for-size(desktop) {
+    & {
+      display: none;
+    }
+  }
+  &.is-open {
+    @include for-size(mobile) {
+      position: absolute;
+      top: 13px;
+      right: 15px;
+    }
+    @include for-size(tablet) {
+      position: absolute;
+      top: 13px;
+      right: 15px;
+    }
+  }
+}
+.header__icon-close,
+.header__icon-burger {
+  @include trans(stroke, $main-color);
+  .header__button:hover &,
+  .header__button:focus & {
+    @include trans(stroke, $white-color);
+  }
+}
+.nav {
+  @include flex();
+}
+.nav-wrap {
+  @include for-size(todesktop) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: $menu;
+    z-index: 3;
+    pointer-events: none;
+    padding-top: 60px;
+    @include trans(opacity, 0);
+    @include trans(visibility, hidden);
+    @include trans(transform, translateX(100%));
+    &.is-open {
+      pointer-events: initial;
+      @include trans(opacity, 1);
+      @include trans(visibility, visible);
+      @include trans(transform, translateX(0));
+    }
+  }
+  @include for-size(desktop) {
+    @include flex($direction: row-reverse, $justcont: space-between);
+    flex-grow: 1;
+  }
+}
+.nav__list {
+  @include for-size(desktop) {
+    @include flex();
+  }
+}
+.nav__item {
+  padding: 12px 0;
+  padding-left: 20px;
+  border-top: 1px solid $border;
+  &:last-child {
+    border-bottom: 1px solid $border;
+  }
+  @include for-size(desktop) {
+    border: none;
+    padding: 15px 0;
+    &:not(:last-child) {
+      margin-right: 35px;
+    }
+    &:last-child {
+      border: none;
+    }
+  }
+}
+.nav__link {
+  display: inline-block;
+  @include font(14px, 700, $white-color, 1.28);
+  &:hover,
+  &:focus {
+    @include trans(color, $main-color);
+  }
+  &.current {
+    color: $main-color;
+  }
+}
+.nav__button {
+  @extend .button;
+  @extend .button--white;
+  display: flex;
+  align-items: baseline;
+  @include font(16px, 700, $main-color, 1.31);
+  padding: 12px 55px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  @include for-size(desktop) {
+    margin-left: 110px;
+    margin-bottom: 0;
+  }
+}
+.nav__button--tablet {
+  display: none;
+  @extend .button;
+  @extend .button--white;
+  @include font(16px, 700, $main-color, 1.31);
+  &.active {
+    display: none;
+  }
+  @include for-size(tablet-only) {
+    display: flex;
+    align-items: baseline;
+    margin-left: 30px;
+    padding: 13px 40px;
+  }
+}
+.nav__icon {
+  width: 4px;
+  height: 8px;
+  margin-left: 14px;
+  stroke: $main-color;
+}

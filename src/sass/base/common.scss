@@ -1,0 +1,16 @@
+body {
+  font-family: 'DM Sans';
+  &.modal-open {
+    overflow: hidden;
+  }
+  overflow-x: hidden;
+}
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.link {
+  display: block;
+}

@@ -1,0 +1,364 @@
+.section--contacts {
+  background-color: $bg-color;
+
+  @include for-size(mobile-tablet) {
+    padding-top: 0;
+    padding-bottom: 29px;
+  }
+
+  @include for-size(tablet-only) {
+    padding-top: 0;
+    padding-bottom: 87px;
+  }
+
+  @include for-size(desktop) {
+    padding-top: 0;
+    padding-bottom: 63px;
+
+    background-image: url('../images/desktop/contacts/sectionbg2 1.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 100%;
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url('../images/desktop/contacts/sectionbg2 1@2x.png');
+    }
+  }
+}
+
+.contacts {
+  position: relative;
+  @include for-size(mobile-tablet) {
+    bottom: 84px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  @include for-size(tablet-only) {
+    bottom: 78px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  @include for-size(desktop) {
+    bottom: 102px;
+    padding-right: 95px;
+    padding-left: 95px;
+  }
+}
+
+.contacts__row {
+  @include for-size(tablet) {
+    @include flex(flex, center, center);
+  }
+}
+
+.contacts__column {
+  transition: transform 250ms $timing;
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
+  &:not(:last-child) {
+    @include for-size(mobile-tablet) {
+      margin-bottom: 20px;
+    }
+
+    @include for-size(tablet-only) {
+      margin-right: 20px;
+    }
+
+    @include for-size(desktop) {
+      margin-right: 31px;
+    }
+  }
+  @media screen and (min-width: 450px) and (max-width: 767px) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.contacts__item {
+  background-color: $white-color;
+  box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+  border-radius: 24px;
+
+  @include for-size(mobile-tablet) {
+    padding: 43px 20px;
+  }
+  @media screen and (min-width: 450px) and (max-width: 767px) {
+    text-align: center;
+    max-width: 350px;
+  }
+  @include for-size(tablet-only) {
+    max-width: 220px;
+    padding: 50px 31px;
+  }
+
+  @include for-size(desktop) {
+    max-width: 330px;
+    padding: 51px 44px 62px 43px;
+  }
+  @media screen and (min-width: 450px) and (max-width: 767px) {
+    padding: 43px 45px 60px;
+  }
+}
+
+// Address
+
+.contacts-address {
+  border-bottom: 1px solid #e1e1e1;
+  @include for-size(mobile-tablet) {
+    padding-bottom: 25px;
+  }
+
+  @include for-size(tablet-only) {
+    padding-bottom: 30px;
+  }
+
+  @include for-size(desktop) {
+    padding-bottom: 32px;
+  }
+}
+
+.contacts-address__background {
+  display: inline-block;
+}
+
+.contacts-address__title {
+  text-align: center;
+
+  background-color: $coffee;
+  border-radius: 6px;
+  @include for-size(mobile-tablet) {
+    @include font(12px, 500, $white-color, 1.86);
+    padding: 0 25px;
+    margin-bottom: 25px;
+  }
+
+  @include for-size(tablet-only) {
+    @include font(16px, 500, $white-color, 1.86);
+    padding: 0 17px;
+    margin-bottom: 30px;
+  }
+
+  @include for-size(desktop) {
+    @include font(16px, 500, $white-color, 1.86);
+    padding: 0 17px;
+    margin-bottom: 32px;
+  }
+}
+
+.contacts-address__title--green {
+  background-color: $milkshake;
+}
+
+.contacts-address__city {
+  @include for-size(mobile-tablet) {
+    @include font(12px, 500, $text-color, 1.86);
+    margin-bottom: 10px;
+  }
+
+  @include for-size(tablet-only) {
+    @include font(14px, 500, $text-color, 1.86);
+    margin-bottom: 14px;
+  }
+
+  @include for-size(desktop) {
+    @include font(16px, 500, $text-color, 1.86);
+    margin-bottom: 10px;
+  }
+}
+
+.contacts-address__text {
+  @include for-size(mobile-tablet) {
+    @include font(12px, 500, $second-text-color, 1.5);
+  }
+
+  @include for-size(tablet-only) {
+    @include font(14px, 500, $second-text-color, 1.66);
+  }
+
+  @include for-size(desktop) {
+    @include font(16px, 500, $second-text-color, 1.83);
+  }
+}
+
+// Work
+
+.contacts-work {
+  border-bottom: 1px solid #e1e1e1;
+  @include for-size(mobile-tablet) {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  @include for-size(tablet-only) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  @include for-size(desktop) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+.contact-work__item:not(:last-child) {
+  @include for-size(mobile-tablet) {
+    margin-bottom: 10px;
+  }
+
+  @include for-size(tablet-only) {
+    margin-bottom: 16px;
+  }
+
+  @include for-size(tablet-only) {
+    margin-bottom: 15px;
+  }
+}
+
+.contacts-work__days {
+  @include for-size(mobile-tablet) {
+    @include font(12px, 500, $text-color, 1.86);
+  }
+
+  @include for-size(tablet-only) {
+    @include font(14px, 500, $text-color, 1.86);
+  }
+
+  @include for-size(desktop) {
+    @include font(16px, 500, $text-color, 1.86);
+  }
+}
+
+.contacts-work__time {
+  @include for-size(mobile-tablet) {
+    @include font(12px, 500, $second-color, 1.86);
+  }
+
+  @include for-size(tablet-only) {
+    @include font(14px, 500, $second-color, 1.86);
+  }
+
+  @include for-size(desktop) {
+    @include font(16px, 500, $second-color, 1.86);
+  }
+}
+
+// Contact
+.contacts-contact {
+  @include for-size(mobile-tablet) {
+    padding-top: 25px;
+  }
+
+  @include for-size(tablet-only) {
+    padding-top: 30px;
+  }
+
+  @include for-size(desktop) {
+    padding-top: 32px;
+  }
+}
+
+.contacts-contact__link {
+  @include for-size(mobile-tablet) {
+    @include font(12px, 500, $second-text-color, 1.5);
+  }
+
+  @include for-size(tablet-only) {
+    @include font(14px, 500, $second-text-color, 1.83);
+  }
+
+  @include for-size(desktop) {
+    @include font(16px, 500, $second-text-color, 1.83);
+  }
+}
+
+// Button
+
+.contacts-block {
+  margin-top: 54px;
+
+  @include for-size(mobile-tablet) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 160px;
+  }
+
+  @include for-size(tablet-only) {
+    @include flex(flex, row, center, center);
+    margin-top: 81px;
+  }
+
+  @include for-size(desktop) {
+    @include flex(flex, row, center, center);
+    margin-top: 86px;
+  }
+}
+
+.contacts-block__link {
+  display: flex;
+  @extend .button;
+  @include font(16px, 700, $white-color, 1.31);
+  border-radius: 22px;
+
+  @include for-size(mobile-tablet) {
+    padding: 12px 17px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  @include for-size(tablet-only) {
+    padding: 12px 32px;
+  }
+
+  @include for-size(desktop) {
+    padding: 12px 35px;
+  }
+}
+
+.contacts-block__link--white {
+  @extend .button;
+  @extend .button--white;
+  @include font(16px, 700, $main-color, 1.31);
+
+  @include for-size(mobile-tablet) {
+    margin: 0 auto;
+    padding: 12px 35px;
+  }
+
+  @include for-size(tablet) {
+    margin-left: 15px;
+    padding: 12px 39px;
+  }
+}
+
+.contacts-block__icon {
+  fill: $main-color;
+  stroke: $white-color;
+  @include for-size(mobile-tablet) {
+    margin-left: 8px;
+  }
+
+  @include for-size(tablet) {
+    margin-left: 14px;
+  }
+}
+
+.contacts-block__icon--white {
+  fill: $white-color;
+  stroke: $main-color;
+
+  @include for-size(mobile-tablet) {
+    margin-left: 8px;
+  }
+
+  @include for-size(tablet) {
+    margin-left: 14px;
+  }
+}
